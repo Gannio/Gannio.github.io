@@ -28,12 +28,17 @@ twitter_username: GannioSoftware
 github_username:  Gannio
 
 # Build settings
-remote_theme: jekyll/minima
+theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-remote-theme
+author:
+  name: Gannio
+  email: "gannioSoftware@gmail.com"
 minima:
-  skin:dark
+  social_links:
+    twitter: GannioSoftware
+    github:  Gannio
+  skin: dark
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
