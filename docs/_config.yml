@@ -28,9 +28,10 @@ twitter_username: GannioSoftware
 github_username:  Gannio
 
 # Build settings
-theme: minima
+remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 author: Gannio
 minima:
   social_links:
