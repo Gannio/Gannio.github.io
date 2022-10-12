@@ -32,7 +32,9 @@ remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-author: Gannio
+author:
+  name: Gannio
+  email: "gannioSoftware@gmail.com"
 minima:
   social_links:
     twitter: GannioSoftware
