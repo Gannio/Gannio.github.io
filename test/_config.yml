@@ -31,7 +31,9 @@ github_username:  Gannio
 theme: minima
 plugins:
   - jekyll-feed
-author: Gannio
+author:
+  name: Gannio
+  email: "gannioSoftware@gmail.com"
 minima:
   social_links:
     twitter: GannioSoftware
