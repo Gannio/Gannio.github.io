@@ -22,8 +22,8 @@ title: Gannio's Blog and Portfolio Site
 email: gannioSoftware@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A portfolio and blog covering my works across my programming career, including the Make a Good Mega Man Level Contest games.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "gannio.github.io" # the subpath of your site, e.g. /blog
+url: "gannio.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: GannioSoftware
 github_username:  Gannio
 
