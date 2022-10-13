@@ -1,524 +1,596 @@
 <script>
 function reverseChildren(me) {
-	if (me.innerHTML == "Switch to Oldest First")
+	if (me != null)
 	{
-		me.innerHTML = "Switch to Newest First"
-	}
-	else
-	{
-		me.innerHTML = "Switch to Oldest First"
-	}
-	parent = document.getElementById("workEntries");
-		for (var i = 1; i < parent.childNodes.length; i++){
-				parent.insertBefore(parent.childNodes[i], parent.firstChild);
+		if (me.innerHTML == "Switch to Oldest First")
+		{
+			me.innerHTML = "Switch to Newest First";
 		}
+		else
+		{
+			me.innerHTML = "Switch to Oldest First";
+		}
+	}
+	reverso(document.getElementById("workEntries"));
+	reverso(document.getElementById("workPresent"));
+	reverso(document.getElementById("work2022"));
+	reverso(document.getElementById("work2021"));
+	reverso(document.getElementById("work2020"));
+	reverso(document.getElementById("work2019"));
+	reverso(document.getElementById("work2018"));
+	reverso(document.getElementById("work2016"));
+	reverso(document.getElementById("work2015"));
+}
+function reverso(parent)
+{
+	for (var i = 1; i < parent.childNodes.length; i++){
+		if (parent.firstChild.tagName == "H1")
+		{
+			break;
+		}
+		else
+		{
+			parent.insertBefore(parent.childNodes[i], parent.firstChild);
+		}
+	}
 }
 </script>
-<center><button onclick="reverseChildren(this)">Switch to Oldest First</button></center>
+<style>
+button {color:#BBBBBB;background-color:#181818;border-color:#EEEEEE}
+</style>
+<center>
+The goal of this page is to go into detail about each published project I have worked on from 2016 to present day.
+<br><br>
+Click on a summary to view a more detailed description of what the task entailed.
+<br><br>
+This page was designed to be viewed chronologically by project release date, but you can use the button below to reverse the order.
+<br><br>
+<button onclick="reverseChildren(this)">Switch to Newest First</button>
+</center>
+<script>reverseChildren(null)</script>
 <div id = "workEntries">
-	<div><!--MaGMML3-->
-		<center>
-			<h2>Make a Good Mega Man Level 3</h2>
-			<a href="https://magmmlcontest.com/magmml3.php">
-				<div style="margin:auto">
-					<img src="https://magmmlcontest.com/images/magmml3Logo.png" alt="MaGMML3 Logo" style="width:50%;image-rendering: pixelated">
-				</div>
-			</a>
-		</center>
-		<br>
-		<details>
-			<summary>[REDACTED]</summary>I would like to preface my MaGMML3 section by stating that <i>much</i> of my MaGMML3 work is currently unreleased, and as a result I am not allowed to disclose it publicly myself. However, I <i>have</i> received special permission to disclose such content under certain circumstances. Below is a collection of publicly-known content as a result, not <i>all</i> that I have worked on for MaGMML3.
-			<br>
-		</details>
-		<details>
-			<summary>QA Documentation/Building Process for Neo Pit of Pits</summary>My first actual work for MaGMML3 (which was initially planned as a fanmade document before being hired). This document kept track of reviews of levels for the Neo Pit of Pits (An endless-attack style mode based on the original Pit of Pits from MaGMML2), for statuses of acception, rejection, or modification.
-			<br>
-			<br>
-			The document is still public and available <a href="https://docs.google.com/spreadsheets/d/1awpuSPYP0jQ-AlbWXr9AO4fWlEo1BR2IIufFnT7NzcY">here.</a>
-			<br>
-		</details>
-		<details>
-			<summary>Entry Content</summary>Like prior MaGMMLs, I also created entry content for MaGMML3, it being how I first began interacting with the MaGMML community as a whole.
-			<br>
-			<br>
-			My current entry content includes Rec Man, as well as 7 Neo Pit of Pits minilevels.
-			<br>
-		</details>
-		<details>
-			<summary>Tier 10</summary>In MaGMML, contest entries are sorted into different tiers based on their placement. For MaGMML3, I was given the opportunity to design/code Tier 10.
-			<br><br>
-			<center>(Preview of Tier 10 from results stream below)</center>
-			<br>
+	<div id = "workPresent"><h1>Present<br></h1>
+		<div><!--MaGMML3-->
 			<center>
-				<iframe width="960" height="540" src="https://www.youtube.com/embed/9M6k6XK6qeQ?start=18066" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</center>
-			<br><br>
-			Tier 10, the Rave Concert, is unique in that almost every element within the Tier is timed to the background music. This is done by interacting with the FMOD DLL to get the timing of the track. Based on the time received from FMOD, the game advances the logic of each object when the time has passed a certain point.
-			<br><br>
-			The exact music-timings to use were found by creating a lua script for FCEUX (an NES emulator), designed to read the exact frame at which a note on the NES's 2A03 channels played. These timings are then inserted into MaGMML3's playback code.
-			<br>
-		</details>
-		<details>
-			<summary>Special Wheel</summary>In previous MaGMMLs, there was a key titled "Special" bound to what would be the Select button on an NES controller. In all MaGMMLs except Episode Zero, this key would open the map when the Mapper item was obtained. In Episode Zero, this key is instead held in combination with the weapon select keys to switch chips instead of weapon types.
-			<br><br>
-			MaGMML3 brings the idea of both of these functions together + more with the introduction of the Special Wheel. By holding down the Special key, you instead freeze gameplay to open up a wheel, from which you can hold certain directions to perform certain actions.
-			<br><br>
-			Actions include opening the map, swapping between normal weapons and Alter weapons, using E/W/M-Tanks, as well as other effects.
-			<br><br>
-			The player can also choose to bind a specific item in the pause menu to Special, rather than use the wheel, to use it quickly without freezing gameplay. This is primarily intended for speedrunning/leaderboards, who would be penalized for switching to Alter weapons otherwise.
-			
-			<br>
-		</details>
-		<details>
-			<summary>Automap Fixes</summary>Compared to previous MaGMMLs, a larger number of entries than usual created levels with unusual section border placement. This results in the game's Mapper item recording inaccurate room layouts (or crashing in some rare cases).
-			<br><br>
-			In MaG48HMML, we adjusted all levels that would crash, but in the two cases (later one in an update) that were still problematic, we disabled the mapper throughout the level. With MaGMML3, I aimed to fix that.
-			<br><br>
-			The solution involves creating a 'fake' level with approximate borders that are still accurate to the level, but adjusted in such a way that while not fully playable, portrays the original level accurately. This output is then "recorded" in-text as it'd be inserted into the mapper as code. That code is then placed into the mapper for the specific levels, with those levels turning off their map generation.
-			<br>
-		</details>
-		<details>
-			<summary>Border Support</summary>A new addition to MaGMML3 is the addition of borders. Primarily intended for fullscreen mode (but usable in windowed mode as well), borders are designed to fill the empty space brought by Mega Man games being in an 8:7 aspect ratio.
-			<br><br>
-			Included is the ability to display UI data on the borders rather than in the game view, as well as different art pieces from devteam artists.
-			<br><br>
-			Alongside the addition of borders, a special border was programmed specifically for the MaGMML3 Results stream. This variant instead displays the level name and author, as well as score information about the level currently being showcased.
-			<br><br>
-			You can view the special results stream border (and subsequently a preview of the border options) below. Timestamp is for the last place entry, which first showcases the scoring border. Note that the border contains extra padding compared to the final game, due to the streamer's setup:
-			<br>
-			<br>
-			<center>
-				<iframe width="960" height="540" src="https://www.youtube.com/embed/9M6k6XK6qeQ?start=1575" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<h2>Make a Good Mega Man Level 3</h2>
+				<a href="https://magmmlcontest.com/magmml3.php">
+					<div style="margin:auto">
+						<img src="https://magmmlcontest.com/images/magmml3Logo.png" alt="MaGMML3 Logo" style="width:50%;image-rendering: pixelated">
+					</div>
+				</a>
 			</center>
 			<br>
-		</details>
-		<details>
-			<summary>Quick Compiler</summary>The Quick Compiler is a new tool created for MaGMML3, as an evolution to the Lightweight/Featherweight builders of previous entries.
-			<br><br>
-			Though the Featherweight on its own was massively helpful the past two projects, MaGMML3 further accentuates other problems held by our GML version, primarily as a result of having over 180 entry levels alone. To solve these problems, I created the GMSQuickCompiler, which addresses several issues:
-			<ul>
-			  <li>There is no option to retry a previously compiled build, whether you ended the game manually or it crashed, taking even more time to recompile.<ul><li>Fixed by providing a small .bat file with every project that relaunches the game using the user's selected Runner executable. The UI allows the user to immediately select the last-used .bat file.</li></ul></li></li>
-			  <li>Temp file management is poor, and requires manual deletion if you choose to End Task the IDE.<ul><li>Fixed by creating a temp file manager in the UI that allows you to delete all temp files at once.</li></ul></li>
-			  <li>Rooms require opening the entire project to edit most of the time (takes upwards of 30 minutes on low-end PC's)<ul><li>Fixed by creating an entirely new Room Editor that relies on grabbing assets only used by the room, until the user asks to add assets.</li></ul></li>
-			</ul>
-			<br>
-		</details>
-		<details>
-			<summary>Texture Page Optimizer</summary>In the GameMaker engine, sprites are seperated into seperate texture pages, organized by groups of pages. The default option compiles them all into a single texture group, which takes an unacceptable amount of time to compile for MaGMML games, as the compiler tries to figure out the best way to fit sprites on each page.
-			<br>
-			<br>
-			In previous MaGMMLs, we would use a texture page randomizer to randomly assign each sprite in the game prior to its release. This would solve compiler times as well as better disperse sprites across different texture groups.
-			<br>
-			<br>
-			When running the game however, any time a sprite needs to be drawn, the currently running texture page needs to be swapped out if the next sprite is on a different page. With enough swapping, this can result in lag on lower-end PC's.
-			<br>
-			<br>
-			The Texture Page Optimizer was made to address this: Rather than randomly assign each sprite to a different group, groups are created based on their location in the project file's hierarchy.
-			<br>
-			<br>
-			Under this algorithm, devkit assets are all placed in groups based on their purposes (Enemies have their own group, Gimmicks have their own group, etc.).
-			<br>
-			<br>
-			Entry assets, on the other hand, are grouped based on their author. This allows the entries themselves to have minimal texture page swapping, as those that use custom assets all-around will only need to perform a few swaps, while those that mix custom and devkit assets only swap between two pages, as opposed to multiple randomized pages.
-			<br>
-			<br>
-			Finally, certain special groups are assigned for very large groups, in order to ensure they only have a single texture page per-sprite. Currently, these groups include costume spritesheets and border UI.
-			<br>
-		</details>
-		<hr>
-	</div>
-	<div><!--MaG48HMML-->
-		<center>
-			<h2>Make a Good 48H Mega Man Level: Episode Zero</h2>
-			<a href="https://magmmlcontest.com/48h.php">
-				<div style="margin:auto">
-					<img src="https://magmmlcontest.com/images/48H-logo.png" alt="MaG48HMML Logo" style="width:50%;image-rendering: pixelated">
-				</div>
-			</a>
-		</center>
-		<br>
-		<details>
-			<summary>Leaderboard Implementation</summary>Unlike, Episode Zero, I took a much more active role in setting up the leaderboard, as the current webmaster was busy at the time and was unable to implement it on her own within the timeframe in which the game would be released.
-			<br><br>
-			Here, my role involved directly implementing the client-side interface for Leaderboards, as opposed to Episode Zero where I simply overlooked issues with the implementation. Without the webmaster being initially available, this meant running the client side interface with some substitutions using 1R's server for testing.
-			<br><br>
-			Once the interface was confirmed to work, the webmaster granted me access to the server source code, from which we used to develop the 48H server from the 1R base.
-			<br><br>
-			Finally, I added support for "Cheat Tags" on submitted leaderboard times. These mark cheat runs that only use a single cheat with special icons, in order to allow users to easier see the best times under certain criteria (namely "challenge" cheats).
-			<br><br>
-			Incidentally, while not used for the final product, in the interim time waiting for the webmaster to be available to grant access to the source code, I created an emergency backup server in the span of 24 hours, by frankensteining together the response API using pieces of WonderCorner.NET.
-			<br>
-		</details>
-		<details>
-			<summary>Blocky</summary>MaG48HMML was also my first opprotunity to code a main-game boss: Box Cartel Blocky, a special variant of the Blocky enemy introduced in Mega Man 2:
-			<br>
-			<br>
-			Timestamped portion of CWU01P's playthrough below:
-			<br>
-			<br>
-			<center>
-			<iframe width = "512" height = "448" src="https://youtube.com/embed/_BrLZUyvXLs?start=708&end=822" allowfullscreen></iframe>
-			</center>
-		</details>
-		<details>
-			<summary>Pandora's Parlor</summary>Another piece of main-game content, Pandora's Parlor is the final level of MaG48HMML. Similar to NaV of previous titles, it is a large level containing a sequence of mini-levels. Here, I worked with the same person I helped program for in Temporal Pillar to create a new mini-level based around wind being influenced by the player's direction.
-			<center>
-			<br>Pandora's Parlor: Gannio & Chiko<br>
-			<iframe width="512" height="448" src="https://www.youtube.com/embed/VKSWdU33VY0?start=1172&end=1317" allowfullscreen></iframe>
-			</center>
-			<br>
-		</details>
-		<details>
-			<summary>Cheats</summary>Like with MaGMML1R, one of my focuses for 48H was to improve the game's Bass Mode.<br>
-			This initially involved porting the changes to the new Megamix Engine, while steps were also taken to further improve Bass's accuracy beyond 1R's release. Unique to 48H's Bass is the inclusion of Treble Boost, Bass's unique support ability from Mega Man 10, which replaces Rush Coil and Rush Jet in his mode.
-			<br>
-			<br>
-			The first part in a full playthrough of Bass Mode by CWU01P can be found below:
-			<br>
-			<br>
-			<center>
-			<iframe width = "512" height = "448" src="https://www.youtube.com/embed/_4AyysHcxDY" allowfullscreen></iframe>
-			</center>
-			<br>
-			<br>
-			In addition to Bass mode, I also assisted in adding other cheat modes to the game. Alongside returning cheats from 1R/2, 48H contains cheats reminiscent of Episode Zero's special Z-Phone calls, as well as a unique "Boost Mode E" and "Boost Mode G", which double the speed of all enemies/gimmicks in the game (with a few exceptions to allow level completion where it would otherwise be impossible).
-			<br>
-		</details>
-		<details>
-			<summary>Player Customization</summary>Like MaGMML2 and 1R, players can add custom costumes into the game to play with any character they'd want.
-			<br><br>Here, my focus was on importing the system such that it supported the new spriteset, as well as adding new parameters for the player to customize their support weapon colors independantly of each other, and name color in textboxes (previous MaGMMLs did not have names as part of textboxes).
-			<br>
-		</details>
-		<details>
-			<summary>Jukebox HUB Playback</summary>In response to feedback of 48H's early versions, I added support in Version 1.1 for the game's Jukebox to set a "HUB Playback" tune, that plays in all Tier HUBs (48H, unlike previous magmmls, only has one HUB theme due to all featuring a similar structure).
-			<br>
-		</details>
-		<details>
-			<summary>Weapon Wheel</summary>Like in Episode Zero, the Weapon Wheel was slightly redesigned to account for various changes between iterations of the engine, improved support for unusual controller configurations, as well as rare weapon colors.
-			<br>
-		</details>
-		<details>
-			<summary>Featherweight Project Builder</summary>As the 48H's early development occured in-tandem with Episode Zero, the Featherweight Project Builder was built co-currently for both projects. See the Episode Zero section for more information on this feature.
-			<br>
-		</details>
-		<hr>
-	</div>
-	<div><!--WonderCorner-->
-		<center>
-			<a href="https://www.wondercorner.net"><h2>WonderCorner.net</h2></a>
-			<a href="https://www.wondercorner.net">
-				<div style="margin:auto">
-					<img src="/assets/wondercorner.png" alt="WonderCorner logo by Protty" style="width:30%;">
-				</div>
-			</a>
-		</center>
-		<br>
-		<details><summary>Project Leader/Programmer/Webmaster</summary>
-			WonderCorner is an online interface designed for mainline Nintendo DS Pokemon games. It is an alteration of the protocol used for the Global Trade System (GTS) of each game, in order to have it act similar to the Wonder Trade feature introduced in the Nintendo 3DS Pokemon games (with some alterations to account for a smaller userbase).
-			<br>
-			<br>
-			While the initial base of the project was centered around open-sourced code from 2015, it quickly evolved into a set of classes, subprotocols, and webpages designed to make the user experience as seamless as possible, given the means of execution.
-			<br><br>
-			Additional features beyond the DS-oriented protocols include:<ul>
-			<li>A web interface showing all Pokemon available for certain 'channels' of trade, as well as receipts for recently traded Pokemon.</li>
-			<li>HTTPS support for the above website.</li>
-			<li>A specialized display system for country flags of each Pokemon for the in-game GeoNET system.</li>
-			<li>Support for displaying Shiny Pokemon that would become "Square Shinies" when transferred to Nintendo Switch Pokemon games.</li>
-			<li>User account options via the DS's interface (Turning on and off location data, as well as GDPR support).</li>
-			<li>Partial DDOS protection.</li>
-			<li>A Discord bot capable of:</li>
-			<li><ul><li>Displaying every Pokemon trade made by the system.</li>
-				<li>Sending internal statistics (IV's/EV's) of a user's Pokemon by syncing their game with their Discord account.</li></ul>
-			<li>An auto-tweet bot that showcases a chosen set of Pokemon that have been traded daily.</li>
-			<li>Implementation of a legality-check system to ensure Pokemon do not have cheated values when under the "Vanilla" subdomain, as well as a strong safety-check system used for all trades.</li>
-			<li>A system for auto-generating competitively-legal, statistically-accurate Pokemon, used in the event the server runs out of Pokemon in the system, and in the Lucky Channel.</li></ul>
-		</details>
-		<hr>
-	</div>
-	<div><!--MaGMMLEZ-->
-		<center>
-			<h2>Make a Good Mega Man Level: Episode Zero</h2>
-			<a href="https://magmmlcontest.com/episodeZero.php">
-				<div style="margin:auto">
-					<img src="https://magmmlcontest.com/images/episodeZeroLogo.png" alt="MaGMML: Episode Zero Logo" style="width:50%;image-rendering: pixelated">
-				</div>
-			</a>
-		</center>
-		<br>
-		
-		<details>
-			<summary>18/24 weapons</summary>My biggest contribution to MaGMML: Episode Zero in terms of impact was coding 18 of the 24 weapons.
-			<br>
-			<br>
-			There are 4 weapon 'types' in Episode Zero: Buster, Saber, Burst, and Drive. Each type also has 6 different chip combinations: No Chip, Cutter, Flame, Icicle, Zap, and Psycho.
-			<br>
-			<br>
-			In the table below, all O's represent weapons that were coded by myself. All X's were instead coded by project leader snoruntpyro.
-			<br>
-			<br>
-			<table>
-				<tr>
-				<th>
-				</th>
-				<th style="width: 32pt;text-align: center;"><img alt="Z-Buster" src="http://magmmlcontest.com/wiki/images/c/c9/ZBusterIcon.png" width="16" height="16" />
-				</th>
-				<th style="width: 32pt;text-align: center;"><img alt="Z-Saber" src="http://magmmlcontest.com/wiki/images/9/92/ZSaberIcon.png" width="16" height="16" />
-				</th>
-				<th style="width: 32pt;text-align: center;"><img alt="Z-Burst" src="http://magmmlcontest.com/wiki/images/7/7a/ZBurstIcon.png" width="16" height="16" />
-				</th>
-				<th style="width: 32pt;text-align: center;"><img alt="Blank Drive" src="http://magmmlcontest.com/wiki/images/7/7c/BlankDriveIcon.png" width="16" height="16" />
-				</th></tr>
-				<tr style="text-align:center;">
-				<th style="width: 32pt;text-align: center;"><img alt="No Chip" src="http://magmmlcontest.com/wiki/images/a/aa/BlankChipIcon.png" width="16" height="16"/>
-				</th>
-				<td> X
-				</td>
-				<td> O
-				</td>
-				<td> X
-				</td>
-				<td> O*
-				</td></tr>
-				<tr style="text-align:center;">
-				<th style="width: 32pt;"><img alt="Cutter Chip" src="http://magmmlcontest.com/wiki/images/f/f1/CutterChipIcon.png" width="16" height="16" />
-				</th>
-				<td> X
-				</td>
-				<td> X
-				</td>
-				<td> X
-				</td>
-				<td> X
-				</td></tr>
-				<tr style="text-align:center;">
-				<th style="width: 32pt;"><img alt="Flame Chip" src="http://magmmlcontest.com/wiki/images/e/e1/FlameChipIcon.png" width="16" height="16" />
-				</th>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td></tr>
-				<tr style="text-align:center;">
-				<th style="width: 32pt;"><img alt="Icicle Chip" src="http://magmmlcontest.com/wiki/images/b/bc/IcicleChipIcon.png" width="16" height="16" />
-				</th>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td></tr>
-				<tr style="text-align:center;">
-				<th style="width: 32pt;"><img alt="Zap Chip" src="http://magmmlcontest.com/wiki/images/8/8a/ZapChipIcon.png" width="16" height="16" />
-				</th>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td></tr>
-				<tr style="text-align:center;">
-				<th style="width: 32pt;"><img alt="Psycho Chip" src="http://magmmlcontest.com/wiki/images/9/93/PsychoChipIcon.png" width="16" height="16" />
-				</th>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td>
-				<td> O
-				</td></tr>
-				</table>
-				*Secret weapon obtainable through sidequest, seen below. Otherwise, the "Blank Drive" does nothing.
-			<br>
-			<br>
-			<center>
-				<img src="http://magmmlcontest.com/wiki/images/c/c7/GigaCrushDemo.gif" alt="Giga Crush" title="EXPLOSIONS">
-			</center>
-			<br>
-		</details>
-		<details>
-			<summary>QA Team</summary>Episode Zero is unlike other MaGMML Contests in the sense that it's not actually a contest! Rather than having entrants send a level to be judged, levels would instead by reviewed by a Quality Assurance team consisting of five devteam members. If the level did not receive an accept vote from at least 3 of 5 judges, it would be rejected. This encouraged a higher quality bar than the main contests tend to provide for entrant levels, as it would encourage entrants to resubmit levels with improvements for a chance at acceptance.
-			<br>
-			<br>
-			The excel sheet for QA responses (also created by me) can be found <a href="https://docs.google.com/spreadsheets/d/1PKF9TOR9jCQEkpD720R_lhNsJXyly01rYzaNXWhWtvE/edit#gid=1126418452">here.</a>
-			<br>
-			<br>
-			A seperate sheet was made for the game's NaV (Null and Void) levels, which is instead located
-			<a href=
-			https://docs.google.com/spreadsheets/d/11zOutx1nbr3omvGDUkgIZMqK1OxrKgwGVx84yc9MJz0/edit#gid=0>here.</a>
-			<br>
-			<br>
-		</details>
-		<details>
-			<summary>Entry content</summary>In addition to work on the main game content, I also took part in some entry levels.
-			<br>
-			<br>
-			String Theory was my primary level, in which the level design, gimmicks, enemy and boss coding were all self-made.
-			<br>Temporal Pillar was a level conceived and designed by a fellow entrant, to whom I offered to provide all coding throughout the level, including the specialized time-block gimmicks.
-			<br>Finally, I created two Null and Void (NaV) sections, of which appear in the final level of the main game.
-			<br>
-			<br>
-			<center>
-			<br>String Theory<br>
-			<iframe width = "512" height = "448" src="https://youtube.com/embed/SY77773pjwE?start=692" allowfullscreen></iframe>
-			<br>Temporal Pillar<br>
-			<iframe width="512" height="448" src="https://www.youtube.com/embed/9DQK7IpVU04?start=494&end=949" allowfullscreen></iframe>
-			<br>Null and Void, Floor 2B<br>
-			<iframe width="512" height="448" src="https://www.youtube.com/embed/wj7zWim_0aM?start=809&end=975" allowfullscreen></iframe>
-			<br>Null and Void, Floor 7C<br>
-			<iframe width="512" height="448" src="https://www.youtube.com/embed/wj7zWim_0aM?start=4742&end=4983" allowfullscreen></iframe>
-			</center>
-			<br>
-		</details>
-		<details>
-			<summary>Weapon Wheel</summary>A quality-of-life improvement added for Episode Zero was the Weapon Wheel from Mega Man 11. This feature was originally designed for MaGMML3 by another devteam member, but was heavily cleaned and recoded for Episode Zero.
-			<br>
-			<br>
-			Part of this cleanup involved adding support for custom weapon selections via the pause menu, as well as support for Episode Zero's chip modules.
-			<br>
-		</details>
-		<details>
-			<summary>Z-Phone</summary>A unique feature exclusive to Episode Zero is the Z-Phone: A tool avaiable in the pause menu that allows the player to receive tips from various characters they meet in their adventure. Additionally, the phone also has a series of special calls the player can enter by entering certain numbers.
-			<br>
-			<br>
-			I coded the interface for the Z-Phone as a whole, a majority of the special calls that have unqiue effects/cheats, as well as all dialogue/logic for the characters Dr. Hyde and Agent Krantz.
-			<br>
-			<br>
-			A summary of all special calls can be found on the Z-Phone page <a href="http://magmmlcontest.com/wiki/index.php/Z-Phone">here.</a>
-			<br>
-		</details>
-		<details>
-			<summary>The Ultimate Choice (Arena)</summary>Episode Zero's version of prior game's arena modes, The Ultimate Choice pits you against a slowly growing section of bosses chosen from throughout the whole game in 7 arena choices (only one of which is required for players to 100% the game).
-			<br>
-			<br>
-			In addition to the main 7 challenges, the player can also create their own custom arenas with up to 255 bosses within the lineup.
-			<br>
-		</details>
-		<details>
-			<summary>Ultimate Mode</summary>A secret cheat mode accessible at the title screen, Ultimate Mode expands upon the Z-Saber's moveset when enabled, as well as adds a comboing system for all weapons. This results in fast-and-frantic gameplay, closer to the Mega Man Zero series' own Ultimate Mode.
-		</details>
-		<details>
-			<summary>Leaderboard Support</summary>Like previous MaGMML entries, Episode Zero contains its own leaderboard for uploading completion times. Here I supported the webmaster in implementing the interface used in MaGMML1 Remastered into Episode Zero, as well as pointing out issues as they cropped up.
-			<br>
-		</details>
-		<details>
-			<summary>Featherweight Project Builder</summary>As the MaGMML series is based off of GML, several roadblocks come into play. In particular, compile times become a long timesink as a result of the many assets spread across multiple level entries.
-			<br><br>
-			In order to develop the game at a faster pace, a Lightweight Project Builder was created before I was hired that finds any and all assets not used in the current project, and produces a "lightweight" project without those assets.
-			<br><br>This was primarily designed for the base-engine in order to create the simplified "Light-Megamix" engine, which includes only some basic enemies and required assets. As a result, it has a problem with full-scale MaGMML projects, as the vast majority of enemies/gimmicks are already used across the entry levels.
-			<br><br>
-			My solution was to create a "Featherweight" Project Builder for the purposes of development. In addition to removing all unused assets, the builder asks the user to specify what rooms they'd like to compile with. The builder then takes these rooms (as well as some "core" rooms essential to the project as a whole) and keeps assets only used within that set, reducing the project file (and as a result of compile times) drastically.
-			<br>
-		</details>
-		<hr>
-	</div>
-	<div><!--MaGMML1R-->
-		<center>
-			<h2>Make a Good Mega Man Level 1: Remastered</h2>
-			<a href="https://magmmlcontest.com/magmml1remastered.php">
-				<div style="margin:auto">
-					<img src="https://magmmlcontest.com/images/magmml1RemasteredLogo.png" alt="MaGMML1: Remastered Logo" style="width:50%;image-rendering: pixelated">
-				</div>
-			</a>
-		</center>
-		<br>
-		<details>
-			<summary>Bass Mode</summary>While I was initially hired for MaGMML3 development, my first published contributions came in the form of MaGMML1 Remastered, a remake of the first Make a Good Mega Man Level Contest.
-			
-			As I had previously researched Bass's physics for Mega Man 2 & Bass, I focused on the Bass Mode cheat available upon 100% completion, with the goal of increasing the accuracy of his overall gameplay to the source material (Mega Man 10).
-		</details>
-		<hr>
-	</div>
-	<div><!--MaGMML2-->
-		<center>
-			<h2>Make a Good Mega Man Level 2</h2>
-			<a href="https://magmmlcontest.com/magmml2.php">
-				<div style="margin:auto">
-					<img src="https://magmmlcontest.com/images/magmml2logo.png" alt="MaGMML2 Logo" style="width:50%;image-rendering: pixelated">
-				</div>
-			</a>
-		</center>
-		<br>
-		<details>
-			<summary>Leaderboard Server Maintenance</summary> While more a minor footnote than anything else, I technically have a small uncredited role in MaGMML2's development...uncredited due to the fact it fixed a bug years after release:
-			<br><br>
-			There is a "Shamless Plug Man" NPC in Knight Man's bar. Upon reaching game completion in later releases of MaGMML2, Plug Man would have special dialog if the player connected to the leaderboard server, which would be updated periodically with upcoming MaGMML content. At some point in 2018 however, the leaderboards were updated in a massive overhaul in preperation for MaGMML1: Remastered's release. This overhaul, while compatible with MaGMML2's leaderboard communication, didn't properly account for Plug Man's dialog. As a result, his dialog was broken for a period of approximately 4 years: <br>
-			<center>
-				<img src="/assets/magmml2-plugman-bugged.png" alt="Plug Man Dialog, but it's trying to read it as an HTML document." title="Me too man.">
-			</center>
-			<br> In the process of applying new features to MaG48HMML's leaderboards, I wrote in a special exception to the MaGMML2 server's communication routine, to allow for normal dialog usage once again: <br><br>
-			<center>
-				<img src="/assets/magmml2-plugman-fixed.png" alt="Plug Man Dialog, but it's 2021 and it's finally fixed." title="Never thought I'd actually get my name in this back in 2016...">
-			</center>
-			<br> The dialog has since served its original purpose of plugging upcoming/recent MaGMML content. At the time of this writing, it currently advertises the release of MaG48HMML.
-		</details>
-		<hr>
-	</div>
-	<div><!--MM2&Bass-->
-		<center>
-			<h2>Mega Man 2 & Bass</h2>
-			<a href="https://magmmlcontest.com/magmml2.php">
-				<div style="margin:auto">
-					<img src="/assets/mm2&bass.png" alt="MaGMML2 Logo" style="image-rendering: pixelated">
-				</div>
-			</a>
-		</center>
-		<br>
-		<details><summary>Project Leader/Programmer</summary>
-			Mega Man 2 & Bass is a mod for the Mega Man Legacy Collection. It utilizes a combination of Lua script and FCEUX (an NES emulator) to extract ROM contents straight from the Legacy Collection, then runs the game with a sequence of commands on-top that take control of the game's RAM (and in some cases, ROM), to add the character Bass from later Mega Man titles into Mega Man 2.
-			<br><br>
-			It also provides support for expansion audio through a special application, allowing the user to play new music in place of the original soundtrack (such as remixes of said soundtrack).
-			<br><br>
-			<iframe width="960" height="540" src="https://www.youtube.com/embed/fanc4zDkQA4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</details>
-		<hr>
-	</div>
-	<div><!--PB Prototype-->
-		<center>
-			<h2>The Peanut Butter Prototype</h2>
-		</center>
-		<br>
-		<details><summary>Project Leader/Programmer</summary>
-			The Peanut Butter Prototype was a game prototype designed for a vocational works program in 2015-2016, created in Unity. The game is a mix of puzzle platformer in single player and a combat-oriented multiplayer that involves mixing and matching different parts of the player robot (in singleplayer to solve puzzles, while in mutiplayer to best handle your opponent).
-			
-			The project received attention both at state and national levels, placing 1st at state and 2nd place nationally in 2016.
-			<br>
-			<center>
-					<iframe width="960" height="540" src="https://www.youtube.com/embed/5XKV0rSHG3Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<details>
+				<summary>[REDACTED]</summary>I would like to preface my MaGMML3 section by stating that <i>much</i> of my MaGMML3 work is currently unreleased, and as a result I am not allowed to disclose it publicly myself. However, I <i>have</i> received special permission to disclose such content under certain circumstances. Below is a collection of publicly-known content as a result, not <i>all</i> that I have worked on for MaGMML3.
+				<br>
+			</details>
+			<details>
+				<summary>QA Documentation/Building Process for Neo Pit of Pits</summary>My first actual work for MaGMML3 (which was initially planned as a fanmade document before being hired). This document kept track of reviews of levels for the Neo Pit of Pits (An endless-attack style mode based on the original Pit of Pits from MaGMML2), for statuses of acception, rejection, or modification.
+				<br>
+				<br>
+				The document is still public and available <a href="https://docs.google.com/spreadsheets/d/1awpuSPYP0jQ-AlbWXr9AO4fWlEo1BR2IIufFnT7NzcY">here.</a>
+				<br>
+			</details>
+			<details>
+				<summary>Entry Content</summary>Like prior MaGMMLs, I also created entry content for MaGMML3, it being how I first began interacting with the MaGMML community as a whole.
+				<br>
+				<br>
+				My current entry content includes Rec Man, as well as 7 Neo Pit of Pits minilevels.
+				<br>
+			</details>
+			<details>
+				<summary>Tier 10</summary>In MaGMML, contest entries are sorted into different tiers based on their placement. For MaGMML3, I was given the opportunity to design/code Tier 10.
+				<br><br>
+				<center>(Preview of Tier 10 from results stream below)</center>
+				<br>
+				<center>
+					<iframe width="960" height="540" src="https://www.youtube.com/embed/9M6k6XK6qeQ?start=18066" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</center>
+				<br><br>
+				Tier 10, the Rave Concert, is unique in that almost every element within the Tier is timed to the background music. This is done by interacting with the FMOD DLL to get the timing of the track. Based on the time received from FMOD, the game advances the logic of each object when the time has passed a certain point.
+				<br><br>
+				The exact music-timings to use were found by creating a lua script for FCEUX (an NES emulator), designed to read the exact frame at which a note on the NES's 2A03 channels played. These timings are then inserted into MaGMML3's playback code.
+				<br>
+			</details>
+			<details>
+				<summary>Special Wheel</summary>In previous MaGMMLs, there was a key titled "Special" bound to what would be the Select button on an NES controller. In all MaGMMLs except Episode Zero, this key would open the map when the Mapper item was obtained. In Episode Zero, this key is instead held in combination with the weapon select keys to switch chips instead of weapon types.
+				<br><br>
+				MaGMML3 brings the idea of both of these functions together + more with the introduction of the Special Wheel. By holding down the Special key, you instead freeze gameplay to open up a wheel, from which you can hold certain directions to perform certain actions.
+				<br><br>
+				Actions include opening the map, swapping between normal weapons and Alter weapons, using E/W/M-Tanks, as well as other effects.
+				<br><br>
+				The player can also choose to bind a specific item in the pause menu to Special, rather than use the wheel, to use it quickly without freezing gameplay. This is primarily intended for speedrunning/leaderboards, who would be penalized for switching to Alter weapons otherwise.
 				
-			</center>
-		</details>
-		<hr>
+				<br>
+			</details>
+			<details>
+				<summary>Automap Fixes</summary>Compared to previous MaGMMLs, a larger number of entries than usual created levels with unusual section border placement. This results in the game's Mapper item recording inaccurate room layouts (or crashing in some rare cases).
+				<br><br>
+				In MaG48HMML, we adjusted all levels that would crash, but in the two cases (later one in an update) that were still problematic, we disabled the mapper throughout the level. With MaGMML3, I aimed to fix that.
+				<br><br>
+				The solution involves creating a 'fake' level with approximate borders that are still accurate to the level, but adjusted in such a way that while not fully playable, portrays the original level accurately. This output is then "recorded" in-text as it'd be inserted into the mapper as code. That code is then placed into the mapper for the specific levels, with those levels turning off their map generation.
+				<br>
+			</details>
+			<details>
+				<summary>Border Support</summary>A new addition to MaGMML3 is the addition of borders. Primarily intended for fullscreen mode (but usable in windowed mode as well), borders are designed to fill the empty space brought by Mega Man games being in an 8:7 aspect ratio.
+				<br><br>
+				Included is the ability to display UI data on the borders rather than in the game view, as well as different art pieces from devteam artists.
+				<br><br>
+				Alongside the addition of borders, a special border was programmed specifically for the MaGMML3 Results stream. This variant instead displays the level name and author, as well as score information about the level currently being showcased.
+				<br><br>
+				You can view the special results stream border (and subsequently a preview of the border options) below. Timestamp is for the last place entry, which first showcases the scoring border. Note that the border contains extra padding compared to the final game, due to the streamer's setup:
+				<br>
+				<br>
+				<center>
+					<iframe width="960" height="540" src="https://www.youtube.com/embed/9M6k6XK6qeQ?start=1575" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</center>
+				<br>
+			</details>
+			<details>
+				<summary>Quick Compiler</summary>The Quick Compiler is a new tool created for MaGMML3, as an evolution to the Lightweight/Featherweight builders of previous entries.
+				<br><br>
+				Though the Featherweight on its own was massively helpful the past two projects, MaGMML3 further accentuates other problems held by our GML version, primarily as a result of having over 180 entry levels alone. To solve these problems, I created the GMSQuickCompiler, which addresses several issues:
+				<ul>
+				  <li>There is no option to retry a previously compiled build, whether you ended the game manually or it crashed, taking even more time to recompile.<ul><li>Fixed by providing a small .bat file with every project that relaunches the game using the user's selected Runner executable. The UI allows the user to immediately select the last-used .bat file.</li></ul></li>
+				  <li>Temp file management is poor, and requires manual deletion if you choose to End Task the IDE.<ul><li>Fixed by creating a temp file manager in the UI that allows you to delete all temp files at once.</li></ul></li>
+				  <li>Rooms require opening the entire project to edit most of the time (takes upwards of 30 minutes on low-end PC's)<ul><li>Fixed by creating an entirely new Room Editor that relies on grabbing assets only used by the room, until the user asks to add assets.</li></ul></li>
+				</ul>
+				<br>
+			</details>
+			<details>
+				<summary>Texture Page Optimizer</summary>In the GameMaker engine, sprites are seperated into seperate texture pages, organized by groups of pages. The default option compiles them all into a single texture group, which takes an unacceptable amount of time to compile for MaGMML games, as the compiler tries to figure out the best way to fit sprites on each page.
+				<br>
+				<br>
+				In previous MaGMMLs, we would use a texture page randomizer to randomly assign each sprite in the game prior to its release. This would solve compiler times as well as better disperse sprites across different texture groups.
+				<br>
+				<br>
+				When running the game however, any time a sprite needs to be drawn, the currently running texture page needs to be swapped out if the next sprite is on a different page. With enough swapping, this can result in lag on lower-end PC's.
+				<br>
+				<br>
+				The Texture Page Optimizer was made to address this: Rather than randomly assign each sprite to a different group, groups are created based on their location in the project file's hierarchy.
+				<br>
+				<br>
+				Under this algorithm, devkit assets are all placed in groups based on their purposes (Enemies have their own group, Gimmicks have their own group, etc.).
+				<br>
+				<br>
+				Entry assets, on the other hand, are grouped based on their author. This allows the entries themselves to have minimal texture page swapping, as those that use custom assets all-around will only need to perform a few swaps, while those that mix custom and devkit assets only swap between two pages, as opposed to multiple randomized pages.
+				<br>
+				<br>
+				Finally, certain special groups are assigned for very large groups, in order to ensure they only have a single texture page per-sprite. Currently, these groups include costume spritesheets and border UI.
+				<br>
+			</details>
+			<hr>
+		</div>
 	</div>
-	<div><!--2015 Rhythm Game Todo: Add footage.-->
-		<center>
-			<h2>Rhythm Game Prototype</h2>
-		</center>
-		<details><summary>Project Leader/Programmer</summary>
-			In 2014-2015, I developed a Rhythm Game prototype for both PC and Android, made in a similar vein to Bitrip Runner (or, what was later found to have been concurrently developed as we created this game, Geometry Dash). In it, you must jump and 'instadrop' to avoid obstacles.
-			<br>
-			<br>
-			By completing the level, you received a rank and points based on how well you did in the song. You could then use these points to purchase hats in a shop, as well as change your player's color.
-			<br>
-			<br>
-			The project received attention both at state and national levels, placing 1st at state and 3rd place nationally in 2016.
-			<br>
-			<br>
+	<div id = "work2022"><h1>2022<br></h1>
+		<div><!--ARClassic-->
 			<center>
-					<img src="/assets/tN-levelSelect.png" title = "The level select menu for preset songs.">
-					<img src="/assets/tN-tutorial.png" title = "The tutorial screen for the game.">
-					<img src="/assets/tN-levelLoaded.png" title = "The level editor, having loaded a custom song.">
-					<img src="/assets/tN-hats.png" title = "The level editor, having loaded a custom song.">
-				
+				<h2>ARClassic</h2>
+				<a href="https://gamebanana.com/tools/9491">
+					<div style="margin:auto">
+						<img src="https://images.gamebanana.com/img/ss/tools/62a3d1c527c0c.jpg" alt="ARClassic" style = "width:75%;">
+					</div>
+				</a>
 			</center>
-		</details>
-		<hr>
+			<br>
+			<details><summary>Project Leader/Programmer</summary>
+				ARClassic is a mod for Super Smash Bros. Ultimate that expands upon the Classic Mode of the game. In normal gameplay, players can only choose one specific Classic Mode Route for every fighter, dependant on the fighter chosen. This makes the variety in the mode itself stale if the user wishes to stick to a particular character.
+				<br><br>
+				ARClassic changes this by allowing you to select between every fighter's route, no matter which fighter you choose. It also allows you to add custom routes without directly replacing a particular character's route.
+				<br><br>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/cF5qFTZGKTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</details>
+			<hr>
+		</div>
+		<div><!--Todo: Synergetic here once there's stuff I can publicly disclose about it.-->
+		</div>
+		</div>
+	<div id = "work2021"><h1>2021<br></h1>
+		<div><!--MaG48HMML-->
+			<center>
+				<h2>Make a Good 48H Mega Man Level: Episode Zero</h2>
+				<a href="https://magmmlcontest.com/48h.php">
+					<div style="margin:auto">
+						<img src="https://magmmlcontest.com/images/48H-logo.png" alt="MaG48HMML Logo" style="width:50%;image-rendering: pixelated">
+					</div>
+				</a>
+			</center>
+			<br>
+			<details>
+				<summary>Leaderboard Implementation</summary>Unlike, Episode Zero, I took a much more active role in setting up the leaderboard, as the current webmaster was busy at the time and was unable to implement it on her own within the timeframe in which the game would be released.
+				<br><br>
+				Here, my role involved directly implementing the client-side interface for Leaderboards, as opposed to Episode Zero where I simply overlooked issues with the implementation. Without the webmaster being initially available, this meant running the client side interface with some substitutions using 1R's server for testing.
+				<br><br>
+				Once the interface was confirmed to work, the webmaster granted me access to the server source code, from which we used to develop the 48H server from the 1R base.
+				<br><br>
+				Finally, I added support for "Cheat Tags" on submitted leaderboard times. These mark cheat runs that only use a single cheat with special icons, in order to allow users to easier see the best times under certain criteria (namely "challenge" cheats).
+				<br><br>
+				Incidentally, while not used for the final product, in the interim time waiting for the webmaster to be available to grant access to the source code, I created an emergency backup server in the span of 24 hours, by frankensteining together the response API using pieces of WonderCorner.NET.
+				<br>
+			</details>
+			<details>
+				<summary>Blocky</summary>MaG48HMML was also my first opprotunity to code a main-game boss: Box Cartel Blocky, a special variant of the Blocky enemy introduced in Mega Man 2:
+				<br>
+				<br>
+				Timestamped portion of CWU01P's playthrough below:
+				<br>
+				<br>
+				<center>
+				<iframe width = "512" height = "448" src="youtube.com/embed/_BrLZUyvXLs?start=708&end=822" allowfullscreen></iframe>
+				</center>
+			</details>
+			<details>
+				<summary>Pandora's Parlor</summary>Another piece of main-game content, Pandora's Parlor is the final level of MaG48HMML. Similar to NaV of previous titles, it is a large level containing a sequence of mini-levels. Here, I worked with the same person I helped program for in Temporal Pillar to create a new mini-level based around wind being influenced by the player's direction.
+				<center>
+				<br>Pandora's Parlor: Gannio & Chiko<br>
+				<iframe width="512" height="448" src="https://www.youtube.com/embed/VKSWdU33VY0?start=1172&end=1317" allowfullscreen></iframe>
+				</center>
+				<br>
+			</details>
+			<details>
+				<summary>Cheats</summary>Like with MaGMML1R, one of my focuses for 48H was to improve the game's Bass Mode.<br>
+				This initially involved porting the changes to the new Megamix Engine, while steps were also taken to further improve Bass's accuracy beyond 1R's release. Unique to 48H's Bass is the inclusion of Treble Boost, Bass's unique support ability from Mega Man 10, which replaces Rush Coil and Rush Jet in his mode.
+				<br>
+				<br>
+				The first part in a full playthrough of Bass Mode by CWU01P can be found below:
+				<br>
+				<br>
+				<center>
+				<iframe width = "512" height = "448" src="https://www.youtube.com/embed/_4AyysHcxDY" allowfullscreen></iframe>
+				</center>
+				<br>
+				<br>
+				In addition to Bass mode, I also assisted in adding other cheat modes to the game. Alongside returning cheats from 1R/2, 48H contains cheats reminiscent of Episode Zero's special Z-Phone calls, as well as a unique "Boost Mode E" and "Boost Mode G", which double the speed of all enemies/gimmicks in the game (with a few exceptions to allow level completion where it would otherwise be impossible).
+				<br>
+			</details>
+			<details>
+				<summary>Player Customization</summary>Like MaGMML2 and 1R, players can add custom costumes into the game to play with any character they'd want.
+				<br><br>Here, my focus was on importing the system such that it supported the new spriteset, as well as adding new parameters for the player to customize their support weapon colors independantly of each other, and name color in textboxes (previous MaGMMLs did not have names as part of textboxes).
+				<br>
+			</details>
+			<details>
+				<summary>Jukebox HUB Playback</summary>In response to feedback of 48H's early versions, I added support in Version 1.1 for the game's Jukebox to set a "HUB Playback" tune, that plays in all Tier HUBs (48H, unlike previous magmmls, only has one HUB theme due to all featuring a similar structure).
+				<br>
+			</details>
+			<details>
+				<summary>Weapon Wheel</summary>Like in Episode Zero, the Weapon Wheel was slightly redesigned to account for various changes between iterations of the engine, improved support for unusual controller configurations, as well as rare weapon colors.
+				<br>
+			</details>
+			<details>
+				<summary>Featherweight Project Builder</summary>As the 48H's early development occured in-tandem with Episode Zero, the Featherweight Project Builder was built co-currently for both projects. See the Episode Zero section for more information on this feature.
+				<br>
+			</details>
+			<hr>
+		</div>
+		</div>
+	<div id = "work2020"><h1>2020<br></h1>
+		<div><!--WonderCorner-->
+			<center>
+				<a href="https://www.wondercorner.net"><h2>WonderCorner.net</h2></a>
+				<a href="https://www.wondercorner.net">
+					<div style="margin:auto">
+						<img src="/assets/wondercorner.png" alt="WonderCorner logo by Protty" style="width:30%;">
+					</div>
+				</a>
+			</center>
+			<br>
+			<details><summary>Project Leader/Programmer/Webmaster</summary>
+				WonderCorner is an online interface designed for mainline Nintendo DS Pokemon games. It is an alteration of the protocol used for the Global Trade System (GTS) of each game, in order to have it act similar to the Wonder Trade feature introduced in the Nintendo 3DS Pokemon games (with some alterations to account for a smaller userbase).
+				<br>
+				<br>
+				While the initial base of the project was centered around open-sourced code from 2015, it quickly evolved into a set of classes, subprotocols, and webpages designed to make the user experience as seamless as possible, given the means of execution.
+				<br><br>
+				Additional features beyond the DS-oriented protocols include:<div><ul>
+				<li>A web interface showing all Pokemon available for certain 'channels' of trade, as well as receipts for recently traded Pokemon.</li>
+				<li>HTTPS support for the above website.</li>
+				<li>A specialized display system for country flags of each Pokemon for the in-game GeoNET system.</li>
+				<li>Support for displaying Shiny Pokemon that would become "Square Shinies" when transferred to Nintendo Switch Pokemon games.</li>
+				<li>User account options via the DS's interface (Turning on and off location data, as well as GDPR support).</li>
+				<li>Partial DDOS protection.</li>
+				<li>A Discord bot capable of:</li>
+				<li><ul><li>Displaying every Pokemon trade made by the system.</li>
+					<li>Sending internal statistics (IV's/EV's) of a user's Pokemon by syncing their game with their Discord account.</li></ul></li>
+				<li>An auto-tweet bot that showcases a chosen set of Pokemon that have been traded daily.</li>
+				<li>Implementation of a legality-check system to ensure Pokemon do not have cheated values when under the "Vanilla" subdomain, as well as a strong safety-check system used for all trades.</li>
+				<li>A system for auto-generating competitively-legal, statistically-accurate Pokemon, used in the event the server runs out of Pokemon in the system, and in the Lucky Channel.</li></ul></div>
+			</details>
+			<hr>
+		</div>
+		<div><!--MaGMMLEZ-->
+			<center>
+				<h2>Make a Good Mega Man Level: Episode Zero</h2>
+				<a href="https://magmmlcontest.com/episodeZero.php">
+					<div style="margin:auto">
+						<img src="https://magmmlcontest.com/images/episodeZeroLogo.png" alt="MaGMML: Episode Zero Logo" style="width:50%;image-rendering: pixelated">
+					</div>
+				</a>
+			</center>
+			<br>
+			
+			<details>
+				<summary>18/24 weapons</summary>My biggest contribution to MaGMML: Episode Zero in terms of impact was coding 18 of the 24 weapons.
+				<br>
+				<br>
+				There are 4 weapon 'types' in Episode Zero: Buster, Saber, Burst, and Drive. Each type also has 6 different chip combinations: No Chip, Cutter, Flame, Icicle, Zap, and Psycho.
+				<br>
+				<br>
+				In the table below, all O's represent weapons that were coded by myself. All X's were instead coded by project leader snoruntpyro.
+				<br>
+				<br>
+				<table>
+					<tr>
+					<th>
+					</th>
+					<th style="width: 32pt;text-align: center;"><img alt="Z-Buster" src="http://magmmlcontest.com/wiki/images/c/c9/ZBusterIcon.png" width="16" height="16" />
+					</th>
+					<th style="width: 32pt;text-align: center;"><img alt="Z-Saber" src="http://magmmlcontest.com/wiki/images/9/92/ZSaberIcon.png" width="16" height="16" />
+					</th>
+					<th style="width: 32pt;text-align: center;"><img alt="Z-Burst" src="http://magmmlcontest.com/wiki/images/7/7a/ZBurstIcon.png" width="16" height="16" />
+					</th>
+					<th style="width: 32pt;text-align: center;"><img alt="Blank Drive" src="http://magmmlcontest.com/wiki/images/7/7c/BlankDriveIcon.png" width="16" height="16" />
+					</th></tr>
+					<tr style="text-align:center;">
+					<th style="width: 32pt;text-align: center;"><img alt="No Chip" src="http://magmmlcontest.com/wiki/images/a/aa/BlankChipIcon.png" width="16" height="16"/>
+					</th>
+					<td> X
+					</td>
+					<td> O
+					</td>
+					<td> X
+					</td>
+					<td> O*
+					</td></tr>
+					<tr style="text-align:center;">
+					<th style="width: 32pt;"><img alt="Cutter Chip" src="http://magmmlcontest.com/wiki/images/f/f1/CutterChipIcon.png" width="16" height="16" />
+					</th>
+					<td> X
+					</td>
+					<td> X
+					</td>
+					<td> X
+					</td>
+					<td> X
+					</td></tr>
+					<tr style="text-align:center;">
+					<th style="width: 32pt;"><img alt="Flame Chip" src="http://magmmlcontest.com/wiki/images/e/e1/FlameChipIcon.png" width="16" height="16" />
+					</th>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td></tr>
+					<tr style="text-align:center;">
+					<th style="width: 32pt;"><img alt="Icicle Chip" src="http://magmmlcontest.com/wiki/images/b/bc/IcicleChipIcon.png" width="16" height="16" />
+					</th>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td></tr>
+					<tr style="text-align:center;">
+					<th style="width: 32pt;"><img alt="Zap Chip" src="http://magmmlcontest.com/wiki/images/8/8a/ZapChipIcon.png" width="16" height="16" />
+					</th>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td></tr>
+					<tr style="text-align:center;">
+					<th style="width: 32pt;"><img alt="Psycho Chip" src="http://magmmlcontest.com/wiki/images/9/93/PsychoChipIcon.png" width="16" height="16" />
+					</th>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td>
+					<td> O
+					</td></tr>
+					</table>
+					*Secret weapon obtainable through sidequest, seen below. Otherwise, the "Blank Drive" does nothing.
+				<br>
+				<br>
+				<center>
+					<img src="http://magmmlcontest.com/wiki/images/c/c7/GigaCrushDemo.gif" alt="Giga Crush" title="EXPLOSIONS">
+				</center>
+				<br>
+			</details>
+			<details>
+				<summary>QA Team</summary>Episode Zero is unlike other MaGMML Contests in the sense that it's not actually a contest! Rather than having entrants send a level to be judged, levels would instead by reviewed by a Quality Assurance team consisting of five devteam members. If the level did not receive an accept vote from at least 3 of 5 judges, it would be rejected. This encouraged a higher quality bar than the main contests tend to provide for entrant levels, as it would encourage entrants to resubmit levels with improvements for a chance at acceptance.
+				<br>
+				<br>
+				The excel sheet for QA responses (also created by me) can be found <a href="https://docs.google.com/spreadsheets/d/1PKF9TOR9jCQEkpD720R_lhNsJXyly01rYzaNXWhWtvE/edit#gid=1126418452">here.</a>
+				<br>
+				<br>
+				A seperate sheet was made for the game's NaV (Null and Void) levels, which is instead located
+				<a href=
+				https://docs.google.com/spreadsheets/d/11zOutx1nbr3omvGDUkgIZMqK1OxrKgwGVx84yc9MJz0/edit#gid=0>here.</a>
+				<br>
+				<br>
+			</details>
+			<details>
+				<summary>Entry content</summary>In addition to work on the main game content, I also took part in some entry levels.
+				<br>
+				<br>
+				String Theory was my primary level, in which the level design, gimmicks, enemy and boss coding were all self-made.
+				<br>Temporal Pillar was a level conceived and designed by a fellow entrant, to whom I offered to provide all coding throughout the level, including the specialized time-block gimmicks.
+				<br>Finally, I created two Null and Void (NaV) sections, of which appear in the final level of the main game.
+				<br>
+				<br>
+				<center>
+				<br>String Theory<br>
+				<iframe width = "512" height = "448" src="youtube.com/embed/SY77773pjwE?start=692" allowfullscreen></iframe>
+				<br>Temporal Pillar<br>
+				<iframe width="512" height="448" src="https://www.youtube.com/embed/9DQK7IpVU04?start=494&end=949" allowfullscreen></iframe>
+				<br>Null and Void, Floor 2B<br>
+				<iframe width="512" height="448" src="https://www.youtube.com/embed/wj7zWim_0aM?start=809&end=975" allowfullscreen></iframe>
+				<br>Null and Void, Floor 7C<br>
+				<iframe width="512" height="448" src="https://www.youtube.com/embed/wj7zWim_0aM?start=4742&end=4983" allowfullscreen></iframe>
+				</center>
+				<br>
+			</details>
+			<details>
+				<summary>Weapon Wheel</summary>A quality-of-life improvement added for Episode Zero was the Weapon Wheel from Mega Man 11. This feature was originally designed for MaGMML3 by another devteam member, but was heavily cleaned and recoded for Episode Zero.
+				<br>
+				<br>
+				Part of this cleanup involved adding support for custom weapon selections via the pause menu, as well as support for Episode Zero's chip modules.
+				<br>
+			</details>
+			<details>
+				<summary>Z-Phone</summary>A unique feature exclusive to Episode Zero is the Z-Phone: A tool avaiable in the pause menu that allows the player to receive tips from various characters they meet in their adventure. Additionally, the phone also has a series of special calls the player can enter by entering certain numbers.
+				<br>
+				<br>
+				I coded the interface for the Z-Phone as a whole, a majority of the special calls that have unqiue effects/cheats, as well as all dialogue/logic for the characters Dr. Hyde and Agent Krantz.
+				<br>
+				<br>
+				A summary of all special calls can be found on the Z-Phone page <a href="http://magmmlcontest.com/wiki/index.php/Z-Phone">here.</a>
+				<br>
+			</details>
+			<details>
+				<summary>The Ultimate Choice (Arena)</summary>Episode Zero's version of prior game's arena modes, The Ultimate Choice pits you against a slowly growing section of bosses chosen from throughout the whole game in 7 arena choices (only one of which is required for players to 100% the game).
+				<br>
+				<br>
+				In addition to the main 7 challenges, the player can also create their own custom arenas with up to 255 bosses within the lineup.
+				<br>
+			</details>
+			<details>
+				<summary>Ultimate Mode</summary>A secret cheat mode accessible at the title screen, Ultimate Mode expands upon the Z-Saber's moveset when enabled, as well as adds a comboing system for all weapons. This results in fast-and-frantic gameplay, closer to the Mega Man Zero series' own Ultimate Mode.
+			</details>
+			<details>
+				<summary>Leaderboard Support</summary>Like previous MaGMML entries, Episode Zero contains its own leaderboard for uploading completion times. Here I supported the webmaster in implementing the interface used in MaGMML1 Remastered into Episode Zero, as well as pointing out issues as they cropped up.
+				<br>
+			</details>
+			<details>
+				<summary>Featherweight Project Builder</summary>As the MaGMML series is based off of GML, several roadblocks come into play. In particular, compile times become a long timesink as a result of the many assets spread across multiple level entries.
+				<br><br>
+				In order to develop the game at a faster pace, a Lightweight Project Builder was created before I was hired that finds any and all assets not used in the current project, and produces a "lightweight" project without those assets.
+				<br><br>This was primarily designed for the base-engine in order to create the simplified "Light-Megamix" engine, which includes only some basic enemies and required assets. As a result, it has a problem with full-scale MaGMML projects, as the vast majority of enemies/gimmicks are already used across the entry levels.
+				<br><br>
+				My solution was to create a "Featherweight" Project Builder for the purposes of development. In addition to removing all unused assets, the builder asks the user to specify what rooms they'd like to compile with. The builder then takes these rooms (as well as some "core" rooms essential to the project as a whole) and keeps assets only used within that set, reducing the project file (and as a result of compile times) drastically.
+				<br>
+			</details>
+			<hr>
+		</div>
+		</div>
+	<div id = "work2019"><h1>2019<br></h1>
+		<div><!--MaGMML1R-->
+			<center>
+				<h2>Make a Good Mega Man Level 1: Remastered</h2>
+				<a href="https://magmmlcontest.com/magmml1remastered.php">
+					<div style="margin:auto">
+						<img src="https://magmmlcontest.com/images/magmml1RemasteredLogo.png" alt="MaGMML1: Remastered Logo" style="width:50%;image-rendering: pixelated">
+					</div>
+				</a>
+			</center>
+			<br>
+			<details>
+				<summary>Bass Mode</summary>While I was initially hired for MaGMML3 development, my first published contributions came in the form of MaGMML1 Remastered, a remake of the first Make a Good Mega Man Level Contest.
+				
+				As I had previously researched Bass's physics for Mega Man 2 & Bass, I focused on the Bass Mode cheat available upon 100% completion, with the goal of increasing the accuracy of his overall gameplay to the source material (Mega Man 10).
+			</details>
+			<hr>
+		</div>
+	</div>
+	<div id = "work2018"><h1>2018<br></h1>
+		<div><!--MM2&Bass-->
+			<center>
+				<h2>Mega Man 2 & Bass</h2>
+				<a href="https://magmmlcontest.com/magmml2.php">
+					<div style="margin:auto">
+						<img src="/assets/mm2&bass.png" alt="MaGMML2 Logo" style="image-rendering: pixelated">
+					</div>
+				</a>
+			</center>
+			<br>
+			<details><summary>Project Leader/Programmer</summary>
+				Mega Man 2 & Bass is a mod for the Mega Man Legacy Collection. It utilizes a combination of Lua script and FCEUX (an NES emulator) to extract ROM contents straight from the Legacy Collection, then runs the game with a sequence of commands on-top that take control of the game's RAM (and in some cases, ROM), to add the character Bass from later Mega Man titles into Mega Man 2.
+				<br><br>
+				It also provides support for expansion audio through a special application, allowing the user to play new music in place of the original soundtrack (such as remixes of said soundtrack).
+				<br><br>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/fanc4zDkQA4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</details>
+			<hr>
+		</div>
+	</div>
+	<div id = "work2016"><h1>2016<br></h1>
+		<div><!--MaGMML2-->
+			<center>
+				<h2>Make a Good Mega Man Level 2</h2>
+				<a href="https://magmmlcontest.com/magmml2.php">
+					<div style="margin:auto">
+						<img src="https://magmmlcontest.com/images/magmml2logo.png" alt="MaGMML2 Logo" style="width:50%;image-rendering: pixelated">
+					</div>
+				</a>
+			</center>
+			<br>
+			<details>
+				<summary>Leaderboard Server Maintenance</summary> While more a minor footnote than anything else, I technically have a small uncredited role in MaGMML2's development...uncredited due to the fact it fixed a bug years after release:
+				<br><br>
+				There is a "Shamless Plug Man" NPC in Knight Man's bar. Upon reaching game completion in later releases of MaGMML2, Plug Man would have special dialog if the player connected to the leaderboard server, which would be updated periodically with upcoming MaGMML content. At some point in 2018 however, the leaderboards were updated in a massive overhaul in preperation for MaGMML1: Remastered's release. This overhaul, while compatible with MaGMML2's leaderboard communication, didn't properly account for Plug Man's dialog. As a result, his dialog was broken for a period of approximately 4 years: <br>
+				<center>
+					<img src="/assets/magmml2-plugman-bugged.png" alt="Plug Man Dialog, but it's trying to read it as an HTML document." title="Me too man.">
+				</center>
+				<br> In the process of applying new features to MaG48HMML's leaderboards, I wrote in a special exception to the MaGMML2 server's communication routine, to allow for normal dialog usage once again: <br><br>
+				<center>
+					<img src="/assets/magmml2-plugman-fixed.png" alt="Plug Man Dialog, but it's 2021 and it's finally fixed." title="Never thought I'd actually get my name in this back in 2016...">
+				</center>
+				<br> The dialog has since served its original purpose of plugging upcoming/recent MaGMML content. At the time of this writing, it currently advertises the release of MaG48HMML.
+			</details>
+			<hr>
+		</div>
+		<div><!--PB Prototype-->
+			<center>
+				<h2>The Peanut Butter Prototype</h2>
+			</center>
+			<br>
+			<details><summary>Project Leader/Programmer</summary>
+				The Peanut Butter Prototype was a game prototype designed for a vocational works program in 2015-2016, created in Unity. The game is a mix of puzzle platformer in single player and a combat-oriented multiplayer that involves mixing and matching different parts of the player robot (in singleplayer to solve puzzles, while in mutiplayer to best handle your opponent).
+				
+				The project received attention both at state and national levels, placing 1st at state and 2nd place nationally in 2016.
+				<br>
+				<center>
+						<iframe width="960" height="540" src="https://www.youtube.com/embed/5XKV0rSHG3Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					
+				</center>
+			</details>
+			<hr>
+		</div>
+	</div>
+	<div id = "work2015"><h1>2015<br></h1>
+		<div><!--2015 Rhythm Game Todo: Add footage.-->
+			<center>
+				<h2>Rhythm Game Prototype</h2>
+			</center>
+			<details><summary>Project Leader/Programmer</summary>
+				In 2014-2015, I developed a Rhythm Game prototype for both PC and Android, made in a similar vein to Bitrip Runner (or, what was later found to have been concurrently developed as we created this game, Geometry Dash). In it, you must jump and 'instadrop' to avoid obstacles.
+				<br>
+				<br>
+				By completing the level, you received a rank and points based on how well you did in the song. You could then use these points to purchase hats in a shop, as well as change your player's color.
+				<br>
+				<br>
+				The project received attention both at state and national levels, placing 1st at state and 3rd place nationally in 2015.
+				<br>
+				<br>
+				<center>
+						<img src="/assets/tN-levelSelect.png" title = "The level select menu for preset songs.">
+						<img src="/assets/tN-tutorial.png" title = "The tutorial screen for the game.">
+						<img src="/assets/tN-levelLoaded.png" title = "The level editor, having loaded a custom song.">
+						<img src="/assets/tN-hats.png" title = "The level editor, having loaded a custom song.">
+					
+				</center>
+			</details>
+			<hr>
+		</div>
+	</div>
+</div>
 	</div>
 </div>
