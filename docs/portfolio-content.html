@@ -62,21 +62,21 @@ This page was designed to be viewed chronologically by project release date, but
 			<br>
 			<details>
 				<summary>[REDACTED]</summary>I would like to preface my MaGMML3 section by stating that <i>much</i> of my MaGMML3 work is currently unreleased, and as a result I am not allowed to disclose it publicly myself. However, I <i>have</i> received special permission to disclose such content under certain circumstances. Below is a collection of publicly-known content as a result, not <i>all</i> that I have worked on for MaGMML3.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>QA Documentation/Building Process for Neo Pit of Pits</summary>My first actual work for MaGMML3 (which was initially planned as a fanmade document before being hired). This document kept track of reviews of levels for the Neo Pit of Pits (An endless-attack style mode based on the original Pit of Pits from MaGMML2), for statuses of acception, rejection, or modification.
 				<br>
 				<br>
 				The document is still public and available <a href="https://docs.google.com/spreadsheets/d/1awpuSPYP0jQ-AlbWXr9AO4fWlEo1BR2IIufFnT7NzcY">here.</a>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Entry Content</summary>Like prior MaGMMLs, I also created entry content for MaGMML3, it being how I first began interacting with the MaGMML community as a whole.
 				<br>
 				<br>
 				My current entry content includes Rec Man, as well as 7 Neo Pit of Pits minilevels.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Tier 10</summary>In MaGMML, contest entries are sorted into different tiers based on their placement. For MaGMML3, I was given the opportunity to design/code Tier 10.
@@ -90,7 +90,7 @@ This page was designed to be viewed chronologically by project release date, but
 				Tier 10, the Rave Concert, is unique in that almost every element within the Tier is timed to the background music. This is done by interacting with the FMOD DLL to get the timing of the track. Based on the time received from FMOD, the game advances the logic of each object when the time has passed a certain point.
 				<br><br>
 				The exact music-timings to use were found by creating a lua script for FCEUX (an NES emulator), designed to read the exact frame at which a note on the NES's 2A03 channels played. These timings are then inserted into MaGMML3's playback code.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Special Wheel</summary>In previous MaGMMLs, there was a key titled "Special" bound to what would be the Select button on an NES controller. In all MaGMMLs except Episode Zero, this key would open the map when the Mapper item was obtained. In Episode Zero, this key is instead held in combination with the weapon select keys to switch chips instead of weapon types.
@@ -101,7 +101,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<br><br>
 				The player can also choose to bind a specific item in the pause menu to Special, rather than use the wheel, to use it quickly without freezing gameplay. This is primarily intended for speedrunning/leaderboards, who would be penalized for switching to Alter weapons otherwise.
 				
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Automap Fixes</summary>Compared to previous MaGMMLs, a larger number of entries than usual created levels with unusual section border placement. This results in the game's Mapper item recording inaccurate room layouts (or crashing in some rare cases).
@@ -109,7 +109,7 @@ This page was designed to be viewed chronologically by project release date, but
 				In MaG48HMML, we adjusted all levels that would crash, but in the two cases (later one in an update) that were still problematic, we disabled the mapper throughout the level. With MaGMML3, I aimed to fix that.
 				<br><br>
 				The solution involves creating a 'fake' level with approximate borders that are still accurate to the level, but adjusted in such a way that while not fully playable, portrays the original level accurately. This output is then "recorded" in-text as it'd be inserted into the mapper as code. That code is then placed into the mapper for the specific levels, with those levels turning off their map generation.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Border Support</summary>A new addition to MaGMML3 is the addition of borders. Primarily intended for fullscreen mode (but usable in windowed mode as well), borders are designed to fill the empty space brought by Mega Man games being in an 8:7 aspect ratio.
@@ -124,7 +124,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<center>
 					<iframe width="960" height="540" src="https://www.youtube.com/embed/9M6k6XK6qeQ?start=1575" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</center>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Quick Compiler</summary>The Quick Compiler is a new tool created for MaGMML3, as an evolution to the Lightweight/Featherweight builders of previous entries.
@@ -135,7 +135,7 @@ This page was designed to be viewed chronologically by project release date, but
 				  <li>Temp file management is poor, and requires manual deletion if you choose to End Task the IDE.<ul><li>Fixed by creating a temp file manager in the UI that allows you to delete all temp files at once.</li></ul></li>
 				  <li>Rooms require opening the entire project to edit most of the time (takes upwards of 30 minutes on low-end PC's)<ul><li>Fixed by creating an entirely new Room Editor that relies on grabbing assets only used by the room, until the user asks to add assets.</li></ul></li>
 				</ul>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Texture Page Optimizer</summary>In the GameMaker engine, sprites are seperated into seperate texture pages, organized by groups of pages. The default option compiles them all into a single texture group, which takes an unacceptable amount of time to compile for MaGMML games, as the compiler tries to figure out the best way to fit sprites on each page.
@@ -157,7 +157,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<br>
 				<br>
 				Finally, certain special groups are assigned for very large groups, in order to ensure they only have a single texture page per-sprite. Currently, these groups include costume spritesheets and border UI.
-				<br>
+				<br>&nbsp
 			</details>
 			<hr>
 		</div>
@@ -206,7 +206,7 @@ This page was designed to be viewed chronologically by project release date, but
 				Finally, I added support for "Cheat Tags" on submitted leaderboard times. These mark cheat runs that only use a single cheat with special icons, in order to allow users to easier see the best times under certain criteria (namely "challenge" cheats).
 				<br><br>
 				Incidentally, while not used for the final product, in the interim time waiting for the webmaster to be available to grant access to the source code, I created an emergency backup server in the span of 24 hours, by frankensteining together the response API using pieces of WonderCorner.NET.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Blocky</summary>MaG48HMML was also my first opprotunity to code a main-game boss: Box Cartel Blocky, a special variant of the Blocky enemy introduced in Mega Man 2:
@@ -218,6 +218,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<center>
 				<iframe width = "512" height = "448" src="https://www.youtube.com/embed/_BrLZUyvXLs?start=708&end=822" allowfullscreen></iframe>
 				</center>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Pandora's Parlor</summary>Another piece of main-game content, Pandora's Parlor is the final level of MaG48HMML. Similar to NaV of previous titles, it is a large level containing a sequence of mini-levels. Here, I worked with the same person I helped program for in Temporal Pillar to create a new mini-level based around wind being influenced by the player's direction.
@@ -225,7 +226,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<br>Pandora's Parlor: Gannio & Chiko<br>
 				<iframe width="512" height="448" src="https://www.youtube.com/embed/VKSWdU33VY0?start=1172&end=1317" allowfullscreen></iframe>
 				</center>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Cheats</summary>Like with MaGMML1R, one of my focuses for 48H was to improve the game's Bass Mode.<br>
@@ -241,24 +242,24 @@ This page was designed to be viewed chronologically by project release date, but
 				<br>
 				<br>
 				In addition to Bass mode, I also assisted in adding other cheat modes to the game. Alongside returning cheats from 1R/2, 48H contains cheats reminiscent of Episode Zero's special Z-Phone calls, as well as a unique "Boost Mode E" and "Boost Mode G", which double the speed of all enemies/gimmicks in the game (with a few exceptions to allow level completion where it would otherwise be impossible).
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Player Customization</summary>Like MaGMML2 and 1R, players can add custom costumes into the game to play with any character they'd want.
 				<br><br>Here, my focus was on importing the system such that it supported the new spriteset, as well as adding new parameters for the player to customize their support weapon colors independantly of each other, and name color in textboxes (previous MaGMMLs did not have names as part of textboxes).
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Jukebox HUB Playback</summary>In response to feedback of 48H's early versions, I added support in Version 1.1 for the game's Jukebox to set a "HUB Playback" tune, that plays in all Tier HUBs (48H, unlike previous magmmls, only has one HUB theme due to all featuring a similar structure).
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Weapon Wheel</summary>Like in Episode Zero, the Weapon Wheel was slightly redesigned to account for various changes between iterations of the engine, improved support for unusual controller configurations, as well as rare weapon colors.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Featherweight Project Builder</summary>As the 48H's early development occured in-tandem with Episode Zero, the Featherweight Project Builder was built co-currently for both projects. See the Episode Zero section for more information on this feature.
-				<br>
+				<br>&nbsp
 			</details>
 			<hr>
 		</div>
@@ -402,7 +403,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<center>
 					<img src="http://magmmlcontest.com/wiki/images/c/c7/GigaCrushDemo.gif" alt="Giga Crush" title="EXPLOSIONS">
 				</center>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>QA Team</summary>Episode Zero is unlike other MaGMML Contests in the sense that it's not actually a contest! Rather than having entrants send a level to be judged, levels would instead by reviewed by a Quality Assurance team consisting of five devteam members. If the level did not receive an accept vote from at least 3 of 5 judges, it would be rejected. This encouraged a higher quality bar than the main contests tend to provide for entrant levels, as it would encourage entrants to resubmit levels with improvements for a chance at acceptance.
@@ -414,8 +415,7 @@ This page was designed to be viewed chronologically by project release date, but
 				A seperate sheet was made for the game's NaV (Null and Void) levels, which is instead located
 				<a href=
 				https://docs.google.com/spreadsheets/d/11zOutx1nbr3omvGDUkgIZMqK1OxrKgwGVx84yc9MJz0/edit#gid=0>here.</a>
-				<br>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Entry content</summary>In addition to work on the main game content, I also took part in some entry levels.
@@ -436,14 +436,14 @@ This page was designed to be viewed chronologically by project release date, but
 				<br>Null and Void, Floor 7C<br>
 				<iframe width="512" height="448" src="https://www.youtube.com/embed/wj7zWim_0aM?start=4742&end=4983" allowfullscreen></iframe>
 				</center>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Weapon Wheel</summary>A quality-of-life improvement added for Episode Zero was the Weapon Wheel from Mega Man 11. This feature was originally designed for MaGMML3 by another devteam member, but was heavily cleaned and recoded for Episode Zero.
 				<br>
 				<br>
 				Part of this cleanup involved adding support for custom weapon selections via the pause menu, as well as support for Episode Zero's chip modules.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Z-Phone</summary>A unique feature exclusive to Episode Zero is the Z-Phone: A tool avaiable in the pause menu that allows the player to receive tips from various characters they meet in their adventure. Additionally, the phone also has a series of special calls the player can enter by entering certain numbers.
@@ -453,21 +453,22 @@ This page was designed to be viewed chronologically by project release date, but
 				<br>
 				<br>
 				A summary of all special calls can be found on the Z-Phone page <a href="http://magmmlcontest.com/wiki/index.php/Z-Phone">here.</a>
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>The Ultimate Choice (Arena)</summary>Episode Zero's version of prior game's arena modes, The Ultimate Choice pits you against a slowly growing section of bosses chosen from throughout the whole game in 7 arena choices (only one of which is required for players to 100% the game).
 				<br>
 				<br>
 				In addition to the main 7 challenges, the player can also create their own custom arenas with up to 255 bosses within the lineup.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Ultimate Mode</summary>A secret cheat mode accessible at the title screen, Ultimate Mode expands upon the Z-Saber's moveset when enabled, as well as adds a comboing system for all weapons. This results in fast-and-frantic gameplay, closer to the Mega Man Zero series' own Ultimate Mode.
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Leaderboard Support</summary>Like previous MaGMML entries, Episode Zero contains its own leaderboard for uploading completion times. Here I supported the webmaster in implementing the interface used in MaGMML1 Remastered into Episode Zero, as well as pointing out issues as they cropped up.
-				<br>
+				<br>&nbsp
 			</details>
 			<details>
 				<summary>Featherweight Project Builder</summary>As the MaGMML series is based off of GML, several roadblocks come into play. In particular, compile times become a long timesink as a result of the many assets spread across multiple level entries.
@@ -476,7 +477,7 @@ This page was designed to be viewed chronologically by project release date, but
 				<br><br>This was primarily designed for the base-engine in order to create the simplified "Light-Megamix" engine, which includes only some basic enemies and required assets. As a result, it has a problem with full-scale MaGMML projects, as the vast majority of enemies/gimmicks are already used across the entry levels.
 				<br><br>
 				My solution was to create a "Featherweight" Project Builder for the purposes of development. In addition to removing all unused assets, the builder asks the user to specify what rooms they'd like to compile with. The builder then takes these rooms (as well as some "core" rooms essential to the project as a whole) and keeps assets only used within that set, reducing the project file (and as a result of compile times) drastically.
-				<br>
+				<br>&nbsp
 			</details>
 			<hr>
 		</div>
