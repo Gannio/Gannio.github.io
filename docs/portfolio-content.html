@@ -43,7 +43,7 @@ The goal of this page is to go into detail about each published project I have w
 <br><br>
 Click on a summary to view a more detailed description of what the task entailed.
 <br><br>
-This page was designed to be viewed chronologically by project release date, but you can use the button below to reverse the order.
+This page was designed to be viewed chronologically by project release date, but you can use the button below to reverse the order. Last updated: 11/24/2022
 <br><br>
 <button onclick="reverseChildren(this)">Switch to Newest First</button>
 </center>
@@ -266,6 +266,62 @@ This page was designed to be viewed chronologically by project release date, but
 			<hr>
 		</div>
 		</div>
+		<div>
+			<center>
+				<h2>Various GLSL ES Shader Work</h2>
+				<div style="margin:auto">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OpenGL_ES_logo_%28Nov14%29.svg/1200px-OpenGL_ES_logo_%28Nov14%29.svg.png" alt="OpenGL Logo" style="width:50%;">
+				</div>
+			</center>
+			<br>
+			<details>
+				<summary>Monochrome Shader</summary>During late 2020-2021, I worked on various side-projects. A number of these projects involved GLSL ES Shaders. The first of these shaders is a basic monochromatic filter. It's used in Episode Zero in the level Temporal Pillar, as well as various MaGMML games in order to render things in monochrome when not currently selected.
+				<br>
+				<center>
+					<img src="/assets/shaderDemoMono.png" alt="Demo using Temporal Pillar" title="">
+				</center>
+				<center>Crusher obstacles affected by the Monochrome shader when time is stopped.</center><br>
+			</details>
+			<details>
+				<summary>Game Boy Shader</summary>Another shader I worked on was a Game Boy Shader. It limits the output to four preset colors of choice, while also altering the color of skin to not conflict with skin color (This makes Mega Man's sprite more accurate to the Game Boy games).
+				<br><br>While this isn't used in any public project so far, it is planned to be used in a future release.
+				<br>
+				<center>
+					<img src="/assets/shaderDemoGB.png" alt="Demo using Temporal Pillar" title="">
+				</center>
+				<center>Game Boy Shader shown in a recreation of Wood Man's stage.</center><br>
+			</details>
+			<details>
+				<summary>Color Randomization Shader</summary>A shader for a currently unannounced project is the Color Randomization Shader. It's designed to take in a random "seed" that is then used to randomly adjust the hue and luminosity of a given object. Luminosity randomization can be turned off, as well as exceptions for black, white, and skin colors.
+				<br><br>While this isn't used in any published project so far, it is planned to be used in a future release.
+				<br><br>
+				<center>
+					<img src="/assets/shaderDemoRandoColors.png" alt="Demo using Temporal Pillar" title="">
+				</center>
+				<center>Color Randomizer. Here, it has randomized the tileset of Wood Man's stage to pink, and the Friendier (Robot Dog) to green.</center><br>
+			</details>
+			<details>
+				<summary>Mega Man Legacy Collection Composite Shader Ports</summary>Through a bit of reverse-engineering, I managed to extract the shaders used in Mega Man Legacy Collection for two TV-like filters (One that only uses scanlines, and another with a more complex composite simulation shown below). My goal was to import these into Megamix Engine to achieve the same effect there, however it was written in HLSL.
+				<br><br>
+				While GMS <i>does</i> have support for HLSL, it's limited to certain platforms, and not very intuitive. To work around this, I ported the code from HLSL to the more friendly GLSL ES format. Barring the slight resolution difference between Megamix Engine and the Legacy Collection, the results are virtually identical:
+				<br><br>
+				<center>
+					<iframe width="960" height="540" src="https://www.youtube.com/embed/UWyF63Bvq3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					Note: Video may take a while to load, as old-style TV filters are not friendly to video streaming.
+				</center>
+				<center>At 0:14, the shader is switched off and on to better showcase the blur effect.</center>
+				<br><br>While this isn't used in any project so far, it is planned to be used in a future release.
+			</details>
+			<details>
+				<summary>Color Isolation Shader</summary>For MaGMML3, I created a color isolation shader that draws only the color specified by the user to the screen, with the option to show that color as pure-white rather than its original output. The goal of this shader is to simplify the creation of user-made Custom Costumes, by providing a second output option that auto-generates whitemasks for the player's special weapon colors. Previously, the user had to create the whitemasks manually, which quadrupled the size of the PNG.
+				<br><br>
+				<center>
+					<img src="/assets/shaderDemoIsolation.png" alt="Demo using Temporal Pillar" title="">
+				</center>
+				<center><br>A user-created skin from 48H ported to MaGMML3, using the isolation shader to render the whitemasks that change Mario's colors.</center><br><br>*48H skin by Mariya the Bacon Baus
+			</details>
+			<hr>
+		</div>
 	<div id = "work2020"><h1>2020<br></h1>
 		<div><!--WonderCorner-->
 			<center>
@@ -296,6 +352,9 @@ This page was designed to be viewed chronologically by project release date, but
 				<li>An auto-tweet bot that showcases a chosen set of Pokemon that have been traded daily.</li>
 				<li>Implementation of a legality-check system to ensure Pokemon do not have cheated values when under the "Vanilla" subdomain, as well as a strong safety-check system used for all trades.</li>
 				<li>A system for auto-generating competitively-legal, statistically-accurate Pokemon, used in the event the server runs out of Pokemon in the system, and in the Lucky Channel.</li></ul></div>
+				
+				While the intial prototype was tested in Microsoft Azure, the final server runs in a DigitialOcean droplet running Linux.
+				
 			</details>
 			<hr>
 		</div>
@@ -505,6 +564,30 @@ This page was designed to be viewed chronologically by project release date, but
 			</details>
 			<hr>
 		</div>
+		<div>
+			<center>
+				<h2>Open GL Demos</h2>
+				<div style="margin:auto">
+					<img src="https://www.opengl.org/img/opengl_logo.png" alt="OpenGL Logo" style="width:50%;">
+				</div>
+			</center>
+			<br>
+			<details>
+				<summary>Project Leader/Programmer</summary> Around 2019, I made a number of demos using OpenGL, written in C++ and designed for Linux.
+				<br><br>
+				The first demo is a recreation of a small rec room captured in real-life. The models within the room were recreated using Blender and loaded in via .OBJ files, which are then rendered to the screen.<br>
+				<center>
+					<img src="/assets/recRoomPhoto.jpg" alt="IRL Image." title="" style = "width:30%">
+					<img src="/assets/recRoomRender.png" alt="Image Render 1" title="" style = "width:30%">
+					<img src="/assets/recRoomRender2.png" alt="Image Render 2" title="" style = "width:30%">
+				</center>
+				<br>The second demo involved creating a 3D animation in under 200 lines of code. I opted to create a black hole absorbing various atoms as it grows larger.<br><br>
+				<center>
+					<iframe width="960" height="540" src="https://www.youtube.com/embed/K4Bz0l20xY8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</center>
+			</details>
+			<hr>
+		</div>
 	</div>
 	<div id = "work2018"><h1>2018<br></h1>
 		<div><!--MM2&Bass-->
@@ -571,6 +654,19 @@ This page was designed to be viewed chronologically by project release date, but
 						<iframe width="960" height="540" src="https://www.youtube.com/embed/5XKV0rSHG3Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					
 				</center>
+			</details>
+			<details><summary>WebGL Test Port</summary>
+				During development, we received a new devteam member who was tasked with promotional material. However, they only had a Mac that was locked down in terms of installing software. We also were at a point where it was difficult to meet up in-person due to differing schedules.
+				<br><br>
+				To get around this, I created a WebGL build of the project at the time (circa 4 months before the above footage) in order to give them an idea of what the game was about. This build was hosted on Google Sites, up until they discontinued general file hosting.
+				<br>
+				<br>
+				<center>
+						<iframe width="960" height="540" src="https://www.youtube.com/embed/-pjnZN1pmqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					
+				</center>
+				<br>
+				<br>
 			</details>
 			<hr>
 		</div>
