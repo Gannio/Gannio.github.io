@@ -164,6 +164,46 @@ This page was designed to be viewed chronologically by project release date, but
 			<hr>
 		</div>
 	</div>
+	<div id = "work2023"><h1>2022<br></h1>
+		<div><!--SMA4Comm-->
+			<center>
+				<h2>SMA4Comm</h2>
+				<a href="https://github.com/LuigiBlood/sma4comm">
+					<div style="margin:auto">
+						<img src="https://mario.wiki.gallery/images/thumb/5/57/Super_Mario_Advance_4_Box.png/1200px-Super_Mario_Advance_4_Box.png" alt="Super Mario Advance 4: Super Mario Bros. 3" style = "width:75%;">
+					</div>
+				</a>
+			</center>
+			<br>
+			<details><summary>Application Summary</summary>
+				SMA4Comm is a homebrew application designed for Super Mario Advance 4: Super Mario Bros. 3 for the Game Boy Advance. In the original release, players could scan powerups, gameplay demos, and even full levels into the game using 2 GBA's, the Nintendo e-Reader, and a link cable.
+				<br><br>
+				In the United States/Australia, only about one third of all e-Reader cards were officially released, so the only way to use the effects of these cards was through homebrew methods of printing the cards on paper (which was generally more flimsy and prone to printer errors).<br><br>
+				SMA4Comm effectively emulates the "companion" application sent to the e-Reader, which would send the card data back to the game. This removes the requirement for an e-Reader itself, and physical cards.
+				
+				A hardware demonstration of SMA4Comm is provided below:
+				<br><br>
+				<iframe width="960" height="540" src="https://www.youtube.com/embed/7NANEv4VCXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</details>
+			<details><summary>Hardware Implementation</summary>
+				While the original creator, LuigiBlood, had created this alongside several other e-Reader companion apps, the Super Mario Advance 4 variant failed to run on real hardware. My first role in this project involved implementing fixes for (as well as testing on) said hardware.
+			</details>
+			<details><summary>Multiboot Support</summary>
+				Initially, SMA4Comm required a GBA Flashcart in order to use on real hardware. This could prove cumbersome for some users (such as myself), as flash carts for the GBA are considerably more expensive than DS flashcarts.
+				<br><br>
+				As a result, I added multiboot support to the compiled ROM. Multiboot allows the GBA to load the ROM data via the link cable, and load it into RAM instead. This allows access to the program for those with a homebrewed Wii alongside the GBA->GC Link cable.
+			</details>
+			<details><summary>Multicard Support</summary>
+				SMA4Comm's initial release only allowed one card "type" (powerup, demo, or level) to be loaded into the ROM at a time. To make things more user-friendly, I added support for pre-loading multiple card images at a time. A flash-cart version of the program can hold every card ever made, while a multiboot, due to the GBA's RAM limits, can hold every card from 2 of the 3 types above, or a mix of cards from each type.
+			</details>
+			
+			
+			<hr>
+		</div>
+		<div><!--Todo: Synergetic here once there's stuff I can publicly disclose about it.-->
+		</div>
+		</div>
+	
 	<div id = "work2022"><h1>2022<br></h1>
 		<div><!--ARClassic-->
 			<center>
