@@ -12,7 +12,7 @@ Initially, I was concerned about the initial consequences of implementing border
 
 The first was that it actually completely broke in Game Maker Studio 1.4.9999. For reference, we use 1.4.1804, the release just *before* 1.4.9999, as our release candidate, due to a few quirks such as sound issues, but some devteam develop on 1.4.9999 due to it being all that’s available to them. Between the two versions though, the base GUI code was changed to be more consistent cross-platform.
 
-<img src="/assets/blog/guireleasenotes.PNG">
+<img src="/assets/blog/guireleasenotes.png">
 <center>The breaking change from 1.4.9999. This brings it closer in line to Game Maker Studio 2</center>
 <br>
 
